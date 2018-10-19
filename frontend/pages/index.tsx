@@ -18,7 +18,6 @@ class Index extends React.Component<Props> {
 
   public componentDidMount() {
     const { isMobile } = this.props
-    console.log(isMobile)  
     this.mainImageRef.current.style.transform = 'scale(1)'
     // window.addEventListener(
     //   'scroll',
@@ -33,21 +32,19 @@ class Index extends React.Component<Props> {
     // )
   }
 
-  public handleScroll = () => {
-    console.log(window)
-    console.log(window.scrollY / document.body.clientHeight)
-    if (!this.ticking) {
-      window.requestAnimationFrame(() => {
-        this.mainImageRef.current.style.opacity = `${window.scrollY / document.body.clientHeight}`
-        this.heartRef.current.style.transform = `rotate(30deg) scale(${window.scrollY / document.body.clientHeight + 0.1})`
-        this.heart2Ref.current.style.opacity = `${window.scrollY / document.body.clientHeight}`
-        this.heart2Ref.current.style.transform = `rotate(-30deg) scale(${window.scrollY / document.body.clientHeight + 0.3})`
-        this.ticking = false
-      })
+  // public handleScroll = () => {
+  //   if (!this.ticking) {
+  //     window.requestAnimationFrame(() => {
+  //       this.mainImageRef.current.style.opacity = `${window.scrollY / document.body.clientHeight}`
+  //       this.heartRef.current.style.transform = `rotate(30deg) scale(${window.scrollY / document.body.clientHeight + 0.1})`
+  //       this.heart2Ref.current.style.opacity = `${window.scrollY / document.body.clientHeight}`
+  //       this.heart2Ref.current.style.transform = `rotate(-30deg) scale(${window.scrollY / document.body.clientHeight + 0.3})`
+  //       this.ticking = false
+  //     })
 
-      this.ticking = true
-    }
-  }
+  //     this.ticking = true
+  //   }
+  // }
 
   public render() {
     const { isMobile } = this.props
