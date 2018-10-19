@@ -8,12 +8,10 @@ interface Props {
 class Index extends React.Component<Props> {
   private ticking: boolean
   private mainImageRef: any
-  private heart2Ref: any
 
   public constructor(props) {
     super(props)
     this.mainImageRef = React.createRef()
-    this.heart2Ref = React.createRef()
   }
 
   public componentDidMount() {
@@ -37,8 +35,6 @@ class Index extends React.Component<Props> {
   //     window.requestAnimationFrame(() => {
   //       this.mainImageRef.current.style.opacity = `${window.scrollY / document.body.clientHeight}`
   //       this.heartRef.current.style.transform = `rotate(30deg) scale(${window.scrollY / document.body.clientHeight + 0.1})`
-  //       this.heart2Ref.current.style.opacity = `${window.scrollY / document.body.clientHeight}`
-  //       this.heart2Ref.current.style.transform = `rotate(-30deg) scale(${window.scrollY / document.body.clientHeight + 0.3})`
   //       this.ticking = false
   //     })
 
