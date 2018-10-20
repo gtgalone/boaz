@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { setAuthModal, setAuthModalType, setFeedbackModal } from 'src/redux/actions'
 import { RootState, ThemeState } from '../@types/types'
+import Nav from './nav'
 
 interface Props {
   isMobile: boolean
@@ -43,6 +44,7 @@ class Layout extends React.Component<Props, State> {
     const { children } = this.props
     return (
       <React.Fragment>
+        <Nav />
         <div className="d-flex">
           {children}
         </div>
