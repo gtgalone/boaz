@@ -8,10 +8,12 @@ interface Props {
 class Index extends React.Component<Props> {
   private ticking: boolean
   private mainImageRef: any
+  private contentRef: any
 
   public constructor(props) {
     super(props)
     this.mainImageRef = React.createRef()
+    this.contentRef = React.createRef()
   }
 
   public componentDidMount() {
@@ -42,24 +44,28 @@ class Index extends React.Component<Props> {
   //   }
   // }
 
+  public onClickScroll = () => {
+    this.contentRef.current.scrollIntoView({ block: 'start', behavior: 'smooth' })
+  }
+
   public render() {
     const { isMobile } = this.props
     return (
       <div className="w-100">
-        <div className="main relative flex justify-center items-center vh-100">
+        <div className="main relative flex justify-center items-center vh-100 overflow-hidden">
           <img src="/static/main-image.jpg" ref={this.mainImageRef} className="main-image absolute mw-none" />
           <div className="background-shadow absolute"></div>
           <div className="main-image-contents relative flex flex-column justify-center items-center">
             <div className="main-image-text relative flex flex-wrap justify-center mb6">
-              <div className="white f3 f2-m f1-ns fw9 georgia w-50-ns tc">To break the cycle of poverty, we must embrace the will to navigate <span className="yellow">Upstream</span></div>
+              <div className="white f3 f2-m f1-ns fw9 georgia w-50-ns tc ph4">To break the cycle of poverty, we must embrace the will to navigate <span className="yellow">Upstream</span></div>
             </div>
-            <div className="white flex flex-column items-center">
+            <div onClick={this.onClickScroll} className="white flex flex-column items-center pointer">
               <i className="arrow-down f2 fw4 fas fa-long-arrow-alt-down mb3"></i>
               <span className="helvetica o-50 f6">S C R O L L</span>
             </div>
           </div>
         </div>
-        <section className="content w-100 pa4 tc relative bg-white vh-50">
+        <section ref={this.contentRef} className="content w-100 pa4 tc relative bg-white vh-50">
         
         </section>
         <style jsx>{`{
